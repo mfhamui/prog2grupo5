@@ -1,3 +1,5 @@
+const data  = require("../db/index");
+
 let productController = {
     index : function(req,res){
         return res.render('index')
@@ -18,8 +20,15 @@ let productController = {
         return res.render('register')
     }, 
     profile: function(req,res){
-        return res.render('profile')
+        return res.render('profile', {  nombre: data.usuario.nombre,
+                                        email: data.usuario.email,
+                                        contrasenia: data.usuario.password,
+                                        nacimiento: data.usuario.fechaNacimiento,
+                                        documento: data.usuario.documento,
+                                        foto: data.usuario.foto,
+                                     })
     },
+
 
 
 }
