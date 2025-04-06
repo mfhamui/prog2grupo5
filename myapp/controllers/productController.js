@@ -13,9 +13,27 @@ let productController = {
     product: function(req,res){
         return res.render('product', {productos: data.productos})
     },
-    search_result: function(req,res){
-        return res.render('search-results', {productos: data.productos})
+    search_result: function(req, res) {
+        const buscar =  req.query.search.toLowerCase();
+        const productos = data.productos;
+        const resultado = [];
+    
+        for (let i = 0; i < productos.length; i++) {
+            if (productos[i].nombre.toLowerCase() === buscar) {
+                resultado.push(productos[i]);
+            }
+        }
+        
+        if (resultado.length > 0) {
+            res.render("search-results", {
+                productos: resultado
+            });
+        } else {
+            res.send(`No se han encontrado resultados para: "${buscar}"`);
+        }
     },
+        
+        
     login: function(req,res){
         return res.render('login')
     },
