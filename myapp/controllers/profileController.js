@@ -1,6 +1,6 @@
 let profileController={
     profile: function(req,res){
-        return res.render('product-add')
+        return res.render('profile')
     },
 }
 
