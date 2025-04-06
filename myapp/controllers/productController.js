@@ -29,13 +29,16 @@ let productController = {
                 resultado.push(productos[i]);
             }
         }
-
         if (resultado.length > 0) {
             res.render("search-results", {
-                productos: resultado
+                productos: resultado,
+                mensaje: null
             });
         } else {
-            res.send(`No se han encontrado resultados para: "${buscar}"`);
+            res.render("search-results", {
+                productos: [],
+                mensaje: `No se han encontrado resultados para: ${buscar}`
+            });
         }
     },
 
