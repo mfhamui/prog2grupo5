@@ -12,43 +12,54 @@ const data = {
 };
 
 const nombres = [
-    "Cafetera Moulinex",
-    "MacBook Pro",
-    "Smartphone Samsung",
-    "Auriculares Sony",
-    "Smart TV LG",
-    "Licuadora Philips",
-    "PlayStation 5",
-    "Cámara Canon",
-    "Notebook Lenovo",
-    "Microondas BGH"
+    "Bronzer Stick",
+    "Luiquid Luminizer",
+    "Matte Bouncy Blush",
+    "Tinted Lip Oil",
+    "Full Size Mascara",
+    "Matte Lip Liner",
+    "Dewy Lip Balm",
+    "Matte Lipstick",
+    "Liquid Contour",
+    "Claw Clip"
 ];
 
 const imagenes = [
-    "/images/products/img-cafetera-moulinex.jpg",
-    "/images/products/img-macbook-pro.jpg",
-    "/images/products/img-samsung-galaxy.jpg",
-    "/images/products/img-auriculares-sony.jpg",
-    "/images/products/img-tv-lg.jpg",
-    "/images/products/img-licuadora.jpg",
-    "/images/products/img-playstation.jpg",
-    "/images/products/img-camara-canon.jpg",
-    "/images/products/img-lenovo.jpg",
-    "/images/products/img-microondas.jpg"
+    "/images/products/Bronzer-Stick-Power-Boost-SKU.webp",
+    "/images/products/ECOMM-PL-LIQUID-LUMINIZER-EXHILARATE-1440x1952.webp",
+    "/images/products/ECOMM-SP-MATTE-BOUNCY-BLUSH-HOPE.webp",
+    "/images/products/soft-pinch-tinted-lip-oil-serenity-1440x1952.webp",
+    "/images/products/Full-Size-Mascara-Open-SKU.webp",
+    "/images/products/kind-words-matte-lip-liner-talented-open.webp",
+    "/images/products/Dewy-Lip-SUPPORT-SKU.webp",
+    "/images/products/kind-words-matte-lipstick-talented.webp",
+    "/images/products/ECOMM-SOFT-PINCH-LIQUID-CONTOUR-GENTLE.webp",
+    "/images/products/ECOMM-FIND-COMFORT-CLAW-CLIP-01.webp"
 ];
 
-const descripcion = "Este producto combina diseño moderno con funcionalidad para ofrecerte la mejor experiencia. Ideal tanto para el hogar como para la oficina. Su diseño resistente y su facilidad de uso lo hacen perfecto para el día a día.";
+const descripcion = [
+    "Warm Wishes Effortless Bronzer Stick",
+    "Positive Light Liquid Luminizer ",
+    "Soft Pinch Matte Bouncy Blush",
+    "Soft Pinch Tinted Lip Oil",
+    "Perfect Strokes Universal Volumizing Mascara",
+    "Kind Words Matte Lip Liner",
+    "Dewy Lip Balm",
+    "Kind Words Matte Lipstick",
+    "Soft Pinch Liquid Contour",
+    "Comfort Claw Clip"
+];
 for (let i = 0; i < 10; i++) {
     let producto = {
         imagen: imagenes[i],
         nombre: nombres[i],
         comentarios: [],
-        descripcion: descripcion
+        descripcion: descripcion[i]
     };
     for (let i = 0; i < 5; i++) {
         let nombre = "Lionel Messi";
         let foto = "/images/messi.webp";
-        let comentario = "¡Una cafetera espectacular! La compré hace unas semanas y no puedo empezar el día sin usarla. "
+        let comentario = "Super esay to blend, perfect shade, such smooth product!"
         producto.comentarios.push({name: nombre, pic: foto, com: comentario})
     }
     
