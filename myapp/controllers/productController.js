@@ -12,7 +12,7 @@ let productController = {
     product: function(req,res){
         return res.render('product', {productos: data.productos})
     },
-    search_result: function(req, res) {
+    search_result: function(req, res) { 
         const buscar =  req.query.search.toLowerCase();
         const productos = data.productos;
         const resultado = [];
@@ -31,25 +31,24 @@ let productController = {
             res.send(`No se han encontrado resultados para: "${buscar}"`);
         }
     },
-        
-        
+    
     login: function(req,res){
-        return res.render('login')
-    },
+            return res.render('login')
+        },
     register: function(req,res){
-        return res.render('register')
-    }, 
+            return res.render('register')
+        }, 
     profile: function(req,res){
-        return res.render('profile', {  nombre: data.usuario.nombre,
-                                        email: data.usuario.email,
-                                        contrasenia: data.usuario.password,
-                                        nacimiento: data.usuario.fechaNacimiento,
-                                        documento: data.usuario.documento,
-                                        foto: data.usuario.foto,
-                                        productos: data.productos
-                                     })
-    },
+            return res.render('profile', {  nombre: data.usuario.nombre,
+                                            email: data.usuario.email,
+                                            contrasenia: data.usuario.password,
+                                            nacimiento: data.usuario.fechaNacimiento,
+                                            documento: data.usuario.documento,
+                                            foto: data.usuario.foto,
+                                            productos: data.productos
+                                        })
+        },
 
-}
+    }
 
-module.exports = productController;
+    module.exports = productController;
