@@ -11,13 +11,40 @@ const data = {
     productos: []
 };
 
+const nombres = [
+    "Cafetera Moulinex",
+    "MacBook Pro",
+    "Smartphone Samsung",
+    "Auriculares Sony",
+    "Smart TV LG",
+    "Licuadora Philips",
+    "PlayStation 5",
+    "Cámara Canon",
+    "Notebook Lenovo",
+    "Microondas BGH"
+];
+
+const imagenes = [
+    "/images/products/img-cafetera-moulinex.jpg",
+    "/images/products/img-macbook-pro.jpg",
+    "/images/products/img-samsung-galaxy.jpg",
+    "/images/products/img-auriculares-sony.jpg",
+    "/images/products/img-tv-lg.jpg",
+    "/images/products/img-licuadora.jpg",
+    "/images/products/img-playstation.jpg",
+    "/images/products/img-camara-canon.jpg",
+    "/images/products/img-lenovo.jpg",
+    "/images/products/img-microondas.jpg"
+];
+
+const descripcion = "Este producto combina diseño moderno con funcionalidad para ofrecerte la mejor experiencia. Ideal tanto para el hogar como para la oficina. Su diseño resistente y su facilidad de uso lo hacen perfecto para el día a día.";
 for (let i = 0; i < 10; i++) {
-    let producto ={
-        imagen: "/images/products/img-cafetera-moulinex.jpg",
-        nombre: "Cafetera Moulinex",
+    let producto = {
+        imagen: imagenes[i],
+        nombre: nombres[i],
         comentarios: [],
-        descripcion: "La Cafetera Moulinex combina diseño moderno con funcionalidad para ofrecerte un café de calidad cada mañana. Con capacidad para 12 tazas, sistema antigoteo y función de mantenimiento del calor, esta cafetera es ideal tanto para el hogar como para la oficina. Su jarra de vidrio resistente y su filtro permanente la hacen fácil de usar y de limpiar, permitiéndote disfrutar de tu café sin complicaciones."
-    }
+        descripcion: descripcion
+    };
     for (let i = 0; i < 5; i++) {
         let nombre = "Lionel Messi";
         let foto = "/images/messi.webp";
