@@ -5,7 +5,9 @@ let productController = {
         return res.render('index')
     },
     product_add: function(req,res){
-        return res.render('product-add')
+        return res.render('product-add', {nombre: data.usuario.nombre,
+
+        })
     },
     product: function(req,res){
         return res.render('product')
