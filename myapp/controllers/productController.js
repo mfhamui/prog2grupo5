@@ -6,7 +6,7 @@ let productController = {
         })
     },
     product_add: function(req,res){
-        return res.render('product-add', {nombre: data.usuario[0].nombre,
+        return res.render('product-add', {nombre: data.usuario.nombre,
 
         })
     },
@@ -23,12 +23,12 @@ let productController = {
         return res.render('register')
     }, 
     profile: function(req,res){
-        return res.render('profile', {  nombre: data.usuario[0].nombre,
-                                        email: data.usuario[0].email,
-                                        contrasenia: data.usuario[0].password,
-                                        nacimiento: data.usuario[0].fechaNacimiento,
-                                        documento: data.usuario[0].documento,
-                                        foto: data.usuario[0].foto,
+        return res.render('profile', {  nombre: data.usuario.nombre,
+                                        email: data.usuario.email,
+                                        contrasenia: data.usuario.password,
+                                        nacimiento: data.usuario.fechaNacimiento,
+                                        documento: data.usuario.documento,
+                                        foto: data.usuario.foto,
                                         productos: data.productos
                                      })
     },
