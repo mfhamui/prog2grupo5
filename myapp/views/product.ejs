@@ -23,7 +23,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= nombre %></h2> 
+			<h2 class="products-title"><%= productos[0].nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/products/product-add">Editar</a>
 			</p>
@@ -31,21 +31,20 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= imagen %> alt="" class="product-detail-img">
+					<img src=<%= productos[0].imagen %> alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam incidunt doloremque ullam debitis, 
-						consectetur modi sed at quaerat reprehenderit accusantium autem ratione cumque eveniet rerum, ducimus,
-						dolores sequi ex odit!</p>
+						<%= productos[0].descripcion %>
+					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% for( let i = 0; i < 5; i++ ) { %>
 							<article>
-								<img src=<%= comentarios[i].pic%> alt="">
+								<img src=<%= productos[0].comentarios[i].pic%> alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/profile"><%= comentarios[i].name %>: </a> </strong>
-									 <%= comentarios[i].com %></p>
+									<strong> <a href="/profile"><%= productos[0].comentarios[i].name %>: </a> </strong>
+									 <%= productos[0].comentarios[i].com %></p>
 								</div>
 							</article>
 						<% } %>

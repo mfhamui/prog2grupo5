@@ -8,27 +8,24 @@ const data = {
         foto: "/images/messi.webp",
     }],
   
-    productos: [
-        {
-            imagen: "/images/products/img-cafetera-moulinex.jpg",
-            nombre: "Cafetera Moulinex",
-            comentarios: []
-        },
-        {
-            imagen: "/images/products/img-macbook-pro-2019.jpg",
-            nombre: "Macbook Pro 2019"
+    productos: []
+};
 
-        }
-      
-    ]
-  };
+for (let i = 0; i < 10; i++) {
+    let producto ={
+        imagen: "/images/products/img-cafetera-moulinex.jpg",
+        nombre: "Cafetera Moulinex",
+        comentarios: [],
+        descripcion: "La Cafetera Moulinex combina diseño moderno con funcionalidad para ofrecerte un café de calidad cada mañana. Con capacidad para 12 tazas, sistema antigoteo y función de mantenimiento del calor, esta cafetera es ideal tanto para el hogar como para la oficina. Su jarra de vidrio resistente y su filtro permanente la hacen fácil de usar y de limpiar, permitiéndote disfrutar de tu café sin complicaciones."
+    }
+    for (let i = 0; i < 5; i++) {
+        let nombre = "Lionel Messi";
+        let foto = "/images/messi.webp";
+        let comentario = "¡Una cafetera espectacular! La compré hace unas semanas y no puedo empezar el día sin usarla. "
+        producto.comentarios.push({name: nombre, pic: foto, com: comentario})
+    }
+    
+    data.productos.push(producto)
+}  
 
-for (let i = 0; i < 5; i++) {
-    let nombre = "lionel Messi";
-    let foto = "/images/messi.webp";
-    let comentario = "Lorem ipsum dolor sit amet. ".repeat(4)
-    data.productos[0].comentarios.push({name: nombre, pic: foto, com: comentario})
-}
-console.log(data.productos[0])
 module.exports = data;
-  
