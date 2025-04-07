@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
     for (let i = 0; i < 5; i++) {
         let nombre = "Lionel Messi";
         let foto = "/images/messi.webp";
-        let comentario = "Super esay to blend, perfect shade, such smooth product!"
+        let comentario = "Super easy to blend, perfect shade, such smooth product!"
         producto.comentarios.push({name: nombre, pic: foto, com: comentario})
     }
     
