@@ -33,6 +33,8 @@ let productController = {
                                      })
     },
 
+
+
 }
 
 module.exports = productController;
