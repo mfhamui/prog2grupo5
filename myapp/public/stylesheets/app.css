@@ -5,7 +5,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: rgba(137, 56, 69, 0.854);
+  --yellow: rgb(102, 0, 51);
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -30,7 +30,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: #fff;
 }
 
 ul,
@@ -43,7 +43,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: var(--yellow);
   font-weight: bold;
 }
 
@@ -72,14 +72,20 @@ hr {
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 7px;
-  color: white;
-  font-size: x-large;
+  color: var(--yellow);
+  font-size: xx-large;
   font-family: "Merriweather";
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.logo {
+  border-radius: 70px;
 }
 
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(254, 248, 244);
 }
 
 .main-header_home-link,
@@ -148,6 +154,8 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color: var(--yellow);
+  font-weight: bold;
 }
 
 .logout:hover {
@@ -170,6 +178,7 @@ hr {
   background-size: cover;
   background-position: center center;
   height: 100px;
+  margin-bottom: 2rem;
 }
 
 
@@ -189,10 +198,11 @@ h2 {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  text-align: center;
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: rgb(254, 248, 244);
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -276,7 +286,7 @@ h2 {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: rgb(254, 248, 244);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -316,7 +326,7 @@ h2 {
 
 /*====== Product Detail ======*/
 .product-detail {
-  background-color: #ffffff;
+  background-color: rgba(254, 248, 244);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -388,7 +398,7 @@ h2 {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: var(--yellow);
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -496,7 +506,7 @@ textarea.form-input {
 }
 
 .btn {
-  background-color: #1259c3;
+  background-color: var(--yellow);
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
@@ -556,12 +566,27 @@ textarea.form-input {
 }
 
 .form {
+  
+  margin-top: 20px;
+  display: flex;
+  text-align: left;
+  background-color: rgba(254, 248, 244, 0.645);
+  padding: 5%;
+  justify-content: center;
+}
+
+.form-lr {
   width: 50%;
   margin-top: 20px;
   display: flex;
   text-align: left;
-  background-color: rgba(128, 128, 128, 0.253);
+  background-color: rgba(254, 248, 244, 0.645);
   padding: 5%;
+  justify-content: center;
+}
+
+.align-form{
+  display: flex;
   justify-content: center;
 }
 
@@ -569,5 +594,13 @@ textarea.form-input {
   margin: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 120%;
+}
+
+.form-group {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 120%;
+  
 }
