@@ -28,4 +28,17 @@ CREATE TABLE productos (
     FOREIGN KEY (id_usuario) REFERENCES usuario(id)
 );
 
+CREATE TABLE comentarios (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id_producto INT UNSIGNED NOT NULL,
+    id_usuario INT UNSIGNED NOT NULL,
+    comentario TEXT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+    FOREIGN KEY (id_producto) REFERENCES productos(id)
+);
+    
+
 
