@@ -15,13 +15,17 @@ CREATE TABLE usuario (
 INSERT INTO usuario  VALUES ( DEFAULT, 'lmessi@gmail.com', "Lionel Messi" , "mundial2024" , "1987-06-24", 12345678, "/images/messi.webp", DEFAULT, DEFAULT, DEFAULT );
 
 
+
 CREATE TABLE productos (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id_usuario INT NOT NULL,
+    id_usuario INT UNSIGNED NOT NULL,
     nombre_archivoImagen VARCHAR (500),
     nombre_producto VARCHAR (500) NOT NULL,
     descripcion_producto TEXT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP
+    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id)
 );
+
+
