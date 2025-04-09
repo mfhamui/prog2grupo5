@@ -39,7 +39,7 @@ const imagenes = [
 
 const descripcion = [
     "Warm Wishes Effortless Bronzer Stick",
-    "Positive Light Liquid Luminizer ",
+    "Positive Light Liquid Luminizer",
     "Soft Pinch Matte Bouncy Blush",
     "Soft Pinch Tinted Lip Oil",
     "Perfect Strokes Universal Volumizing Mascara",
