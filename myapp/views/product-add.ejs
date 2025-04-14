@@ -32,15 +32,15 @@
 					<form action="/product/add" method="POST" class="formula" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="image">Imagen del producto:</label>
-							<input type="file" name="image" id="image" required>
+							<input type="url" name="image" id="image" >
 						</div>
 						<div class="form-group">
 							<label for="productName">Nombre del producto:</label>
-							<input type="text" name="productName" id="productName" required>
+							<input type="text" name="productName" id="productName" >
 						</div>
 						<div class="form-group">
 							<label for="description">Descripción:</label>
-							<textarea name="description" id="description" rows="4" required></textarea>
+							<textarea name="description" id="description" rows="4" ></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">Agregar producto</button>
 					</form>
