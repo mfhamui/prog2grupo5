@@ -3,9 +3,9 @@ USE datos;
 CREATE TABLE usuario (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(500) NOT NULL UNIQUE, 
-    nombre_usuario VARCHAR(500) NOT NULL UNIQUE,
+    nombreUsuario VARCHAR(500) NOT NULL UNIQUE,
     contrasenia VARCHAR(500) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
+    fechaNacimiento DATE NOT NULL,
 	documento INT UNSIGNED NOT NULL,
     foto VARCHAR(500) NOT NULL, 
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -22,13 +22,14 @@ INSERT INTO usuario VALUES ( DEFAULT, 'sofiabarrios@gmail.com', 'Sofia Barrios',
 
 CREATE TABLE productos (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id_usuario INT NOT NULL,
-    nombre_archivoImagen VARCHAR (500),
-    nombre_producto VARCHAR (500) NOT NULL,
-    descripcion_producto TEXT,
+    idUsuario INT NOT NULL,
+    nombreArchivoImagen VARCHAR (500),
+    nombreProducto VARCHAR (500) NOT NULL,
+    descripcionProducto TEXT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP
+    FOREIGN KEY (idUsuario) REFERENCES usuario(id),
 );
 
 INSERT INTO productos  VALUES ( DEFAULT, 1, "/images/products/Bronzer-Stick-Power-Boost-SKU.webp", "Bronzer Stick" , "Warm Wishes Effortless Bronzer Stick", DEFAULT, DEFAULT, DEFAULT );
@@ -44,14 +45,14 @@ INSERT INTO productos  VALUES ( DEFAULT, 5, "/images/products/ECOMM-FIND-COMFORT
 
 CREATE TABLE comentarios (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    id_producto INT UNSIGNED NOT NULL,
-    id_usuario INT UNSIGNED NOT NULL,
+    idProducto INT UNSIGNED NOT NULL,
+    idUsuario INT UNSIGNED NOT NULL,
     comentario TEXT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id),
-    FOREIGN KEY (id_producto) REFERENCES productos(id)
+    FOREIGN KEY (idUsuario) REFERENCES usuario(id),
+    FOREIGN KEY (idProducto) REFERENCES productos(id)
 );
 
 INSERT INTO comentarios VALUES (DEFAULT, 1, 1, "Muy fácil de aplicar y se difumina súper bien. Le da un tono natural a mi piel sin parecer artificial.", DEFAULT, DEFAULT, DEFAULT);

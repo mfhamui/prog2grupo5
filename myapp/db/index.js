@@ -8,62 +8,327 @@ const data = {
         foto: "/images/messi.webp",
     },
   
-    productos: []
+    productos: [
+        {
+          "imagen": "/images/products/Bronzer-Stick-Power-Boost-SKU.webp",
+          "nombre": "Bronzer Stick",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Warm Wishes Effortless Bronzer Stick"
+        },
+        {
+          "imagen": "/images/products/ECOMM-PL-LIQUID-LUMINIZER-EXHILARATE-1440x1952.webp",
+          "nombre": "Luiquid Luminizer",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Positive Light Liquid Luminizer"
+        },
+        {
+          "imagen": "/images/products/ECOMM-SP-MATTE-BOUNCY-BLUSH-HOPE.webp",
+          "nombre": "Matte Bouncy Blush",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Soft Pinch Matte Bouncy Blush"
+        },
+        {
+          "imagen": "/images/products/soft-pinch-tinted-lip-oil-serenity-1440x1952.webp",
+          "nombre": "Tinted Lip Oil",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Soft Pinch Tinted Lip Oil"
+        },
+        {
+          "imagen": "/images/products/Full-Size-Mascara-Open-SKU.webp",
+          "nombre": "Full Size Mascara",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Perfect Strokes Universal Volumizing Mascara"
+        },
+        {
+          "imagen": "/images/products/kind-words-matte-lip-liner-talented-open.webp",
+          "nombre": "Matte Lip Liner",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Kind Words Matte Lip Liner"
+        },
+        {
+          "imagen": "/images/products/Dewy-Lip-SUPPORT-SKU.webp",
+          "nombre": "Dewy Lip Balm",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Dewy Lip Balm"
+        },
+        {
+          "imagen": "/images/products/kind-words-matte-lipstick-talented.webp",
+          "nombre": "Matte Lipstick",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Kind Words Matte Lipstick"
+        },
+        {
+          "imagen": "/images/products/ECOMM-SOFT-PINCH-LIQUID-CONTOUR-GENTLE.webp",
+          "nombre": "Liquid Contour",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Soft Pinch Liquid Contour"
+        },
+        {
+          "imagen": "/images/products/ECOMM-FIND-COMFORT-CLAW-CLIP-01.webp",
+          "nombre": "Claw Clip",
+          "comentarios": [
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            },
+            {
+              "name": "Lionel Messi",
+              "pic": "/images/messi.webp",
+              "com": "Super easy to blend, perfect shade, such smooth product!"
+            }
+          ],
+          "descripcion": "Comfort Claw Clip"
+        }
+      ]
 };
-
-const nombres = [
-    "Bronzer Stick",
-    "Luiquid Luminizer",
-    "Matte Bouncy Blush",
-    "Tinted Lip Oil",
-    "Full Size Mascara",
-    "Matte Lip Liner",
-    "Dewy Lip Balm",
-    "Matte Lipstick",
-    "Liquid Contour",
-    "Claw Clip"
-];
-
-const imagenes = [
-    "/images/products/Bronzer-Stick-Power-Boost-SKU.webp",
-    "/images/products/ECOMM-PL-LIQUID-LUMINIZER-EXHILARATE-1440x1952.webp",
-    "/images/products/ECOMM-SP-MATTE-BOUNCY-BLUSH-HOPE.webp",
-    "/images/products/soft-pinch-tinted-lip-oil-serenity-1440x1952.webp",
-    "/images/products/Full-Size-Mascara-Open-SKU.webp",
-    "/images/products/kind-words-matte-lip-liner-talented-open.webp",
-    "/images/products/Dewy-Lip-SUPPORT-SKU.webp",
-    "/images/products/kind-words-matte-lipstick-talented.webp",
-    "/images/products/ECOMM-SOFT-PINCH-LIQUID-CONTOUR-GENTLE.webp",
-    "/images/products/ECOMM-FIND-COMFORT-CLAW-CLIP-01.webp"
-];
-
-const descripcion = [
-    "Warm Wishes Effortless Bronzer Stick",
-    "Positive Light Liquid Luminizer",
-    "Soft Pinch Matte Bouncy Blush",
-    "Soft Pinch Tinted Lip Oil",
-    "Perfect Strokes Universal Volumizing Mascara",
-    "Kind Words Matte Lip Liner",
-    "Dewy Lip Balm",
-    "Kind Words Matte Lipstick",
-    "Soft Pinch Liquid Contour",
-    "Comfort Claw Clip"
-];
-for (let i = 0; i < 10; i++) {
-    let producto = {
-        imagen: imagenes[i],
-        nombre: nombres[i],
-        comentarios: [],
-        descripcion: descripcion[i]
-    };
-    for (let i = 0; i < 5; i++) {
-        let nombre = "Lionel Messi";
-        let foto = "/images/messi.webp";
-        let comentario = "Super easy to blend, perfect shade, such smooth product!"
-        producto.comentarios.push({name: nombre, pic: foto, com: comentario})
-    }
-    
-    data.productos.push(producto)
-}  
-
 module.exports = data;
