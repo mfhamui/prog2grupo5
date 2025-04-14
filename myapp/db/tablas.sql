@@ -22,14 +22,14 @@ INSERT INTO usuario VALUES ( DEFAULT, 'sofiabarrios@gmail.com', 'Sofia Barrios',
 
 CREATE TABLE productos (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    idUsuario INT NOT NULL,
+    idUsuario INT UNSIGNED NOT NULL,
     nombreArchivoImagen VARCHAR (500),
     nombreProducto VARCHAR (500) NOT NULL,
     descripcionProducto TEXT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP
-    FOREIGN KEY (idUsuario) REFERENCES usuario(id),
+    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(id)
 );
 
 INSERT INTO productos  VALUES ( DEFAULT, 1, "/images/products/Bronzer-Stick-Power-Boost-SKU.webp", "Bronzer Stick" , "Warm Wishes Effortless Bronzer Stick", DEFAULT, DEFAULT, DEFAULT );
