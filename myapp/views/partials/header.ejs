@@ -38,11 +38,8 @@
 
             <ul class="right-navbar">
                 <%if(user != undefined) {%>
-                    <li><a href="profile.html"> <%= user.name %> <i class="fas fa-user"></i>
-                    </a>
-                </li>
-                <li><a href="/profile">Mi Perfil</a></li>
-                <li><a href="/logout" class="logout">Logout</a></li>
+                <li><a href="/profile"> <%= user.name %> <i class="fas fa-user"></i> </a></li>
+                <li><a href="/logout" class="logout">Cerrar sesión</a></li>
                 <li><a href="/product-add">Agregar producto</a></li>
                 
                 <% } else { %>
