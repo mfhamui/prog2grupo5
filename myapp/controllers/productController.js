@@ -1,7 +1,7 @@
 const data  = require("../db/index");
 const db = require("../database/models");
 const products = db.products; 
-const Op= db.Sequelize.Op;
+const op= db.Sequelize.Op;
 
 let productController = {
     index : function(req,res){
@@ -17,7 +17,7 @@ let productController = {
        const search = req.query.search;
         let relacion = {
             where: {
-                nombreProducto: { [Op.like]: `%${search}%` }
+                nombreProducto: { [op.like]: `%${search}%` }
             },
             include: [
                 { association: "usuario" }

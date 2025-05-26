@@ -36,8 +36,10 @@
 					<%= mensaje %>
 				</div>
 			 <% } %>
-			<!-- Show the "ultimos" products -->
-			<% for( let i = 0; i < 8; i++ ) { %>
+
+			 <% if (productos.length > 0) { %>
+
+				<% for( let i = 0; i < 8; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/products/product"></a>
@@ -53,6 +55,10 @@
 					</section>
 				</div>
 			<% } %>
+			  
+			 <% } %>
+			 <!-- Show the "ultimos" products -->
+			
 
 
 <%- include('./partials/footer') %>
