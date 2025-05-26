@@ -37,6 +37,10 @@ create: function (req, res) {
         if (results.lengh>0) {
             return res.send('no se puede crear el usuario porque ya existe una cuenta con ese email')
         }else{
+            if (condition) {
+                
+            }
+
             User.create({
                 email: email,
                 nombreUsuario: name,
