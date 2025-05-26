@@ -5,7 +5,7 @@ const profileController = require('../controllers/profileController');
 
 
 router.get('/', productController.index);
-router.get('/login', profileController.login);
+router.post('/login', profileController.login);
 router.get('/profile', profileController.profile);
 router.get('/product-add', productController.product_add );
 router.get('/product', productController.product);
