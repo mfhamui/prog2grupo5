@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = 'Usuario'; // Nombre del modelo
+    let alias = 'User'; 
 
     let cols = {
         id: {
@@ -50,7 +50,7 @@ module.exports = function (sequelize, dataTypes) {
         underscored: false
     };
 
-    const Usuario = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
 
-    return Usuario;
+    return User;
 };
