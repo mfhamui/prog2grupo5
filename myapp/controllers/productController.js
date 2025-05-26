@@ -20,7 +20,8 @@ let productController = {
                 nombreProducto: { [op.like]: `%${search}%` }
             },
             include: [
-                { association: "usuario" }
+                { association: "usuario" },
+                 { association: "comentarios" }
             ]
         };
 
