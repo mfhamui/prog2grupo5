@@ -32,7 +32,7 @@ let productController = {
                 if (productos.length == 0) {
                     mensaje = "No hay resultados para su criterio de búsqueda";
                 }else{
-                    mensaje= ""
+                    mensaje= undefined;
                 };
                 return res.render("search-results", { productos, search, mensaje });
             })
