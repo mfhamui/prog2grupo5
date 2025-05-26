@@ -5,6 +5,12 @@ let User = db.User;
 const op = db.Sequelize.Op
 
 let profileController = {
+showLogin: function (req, res) {
+    if (req.session.user) {
+        return res.redirect("/profile");
+    }
+    res.render("login")
+},
 login: function(req,res){
     let datos = req.body;
 
@@ -28,7 +34,7 @@ login: function(req,res){
         .catch(function (error) {
                     return res.send(error)
                 })
-
+        
 },
 register: function (req, res) {
 
