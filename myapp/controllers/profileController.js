@@ -1,4 +1,4 @@
-const data  = require("../db/index");
+const data = require("../db/index");
 const db = require('../database/models')
 const User = db.User;
 const bcrypt = require("bcryptjs");
@@ -10,22 +10,50 @@ login: function(req,res){
     
     
 
-},
-register: function(req,res){
-    return res.render('register')
-}, 
-profile: function(req,res){
-    return res.render('profile', {  nombre: data.usuario.nombre,
-                                    email: data.usuario.email,
-                                    contrasenia: data.usuario.password,
-                                    nacimiento: data.usuario.fechaNacimiento,
-                                    documento: data.usuario.documento,
-                                    foto: data.usuario.foto,
-                                    productos: data.productos
-                                    })
-},
+    },
+    register: function (req, res) {
 
-};
+        return res.render('register')
+    },
+    profile: function (req, res) {
+        return res.render('profile', {
+            nombre: data.usuario.nombre,
+            email: data.usuario.email,
+            contrasenia: data.usuario.password,
+            nacimiento: data.usuario.fechaNacimiento,
+            documento: data.usuario.documento,
+            foto: data.usuario.foto,
+            productos: data.productos
+        })
+    },
+    create: function (req, res) {
+        let { email, name, password, fechaNacimiento, documento, foto } = req.body;
 
- module.exports = profileController;
+        // Verificar si el email ya existe
+
+
+        User.create({
+            email: email,
+            nombreUsuario: name,
+            contrasenia: passwordHasheada,
+            fechaNacimiento: fechaNacimiento,
+            documento: documento,
+            foto: foto
+        })
+            .then(function (resultado) {
+                return res.redirect('/products/profile');
+            })
+            .catch(function (error) {
+                console.log(error);
+                return res.send("Error al crear el usuario");
+            });
+    }
+
+        
+}
+
+
+
+
+module.exports = profileController;
 
