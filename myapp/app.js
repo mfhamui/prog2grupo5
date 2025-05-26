@@ -39,9 +39,9 @@ app.use(function (req, res, next) {
 })
 // middleware de cookies para vistas
 app.use(function (req, res, next) {
-  if (req.cookies.tyc != undefined && req.session.user == undefined) {
-    res.locals.user= req.cookies.tyc;
-    req.session.user = req.cookies.tyc;
+  if (req.cookies.recordarme != undefined && req.session.user == undefined) {
+    res.locals.user= req.cookies.recordarme;
+    req.session.user = req.cookies.recordarme;
   }
   return next()
 })
