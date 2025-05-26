@@ -6,10 +6,32 @@ const op = db.Sequelize.Op
 
 let profileController = {
 login: function(req,res){
-    
-    return res.render('login')
-    
-    
+    let datos = req.body;
+
+        db.User.findOne({ where: { email: { [op.like]: datos.email } } })
+            .then(function (results) {
+                if (results != undefined) {
+                    let validPass = bcrypt.compareSync(datos.password, results.password);
+
+                    if (validPass) {
+                        req.session.user = results;
+                        if (datos.recordarme != undefined) {
+                            res.cookie("recordarme", results.email, { maxAge: 60000 })
+                        }
+                        return res.redirect("/product");
+
+                    } else {
+                        return res.send("contraseña incorrecta");
+                    }
+
+                } else {
+                    return res.send("email incorrecto");
+                }
+            })
+        
+        .catch(function (error) {
+                    return res.send(error)
+                })
 
 },
 register: function (req, res) {
