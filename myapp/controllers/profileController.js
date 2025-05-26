@@ -1,7 +1,7 @@
 const data = require("../db/index");
 const db = require('../database/models')
-const User = db.User;
 const bcrypt = require("bcryptjs");
+const op = db.Sequelize.Op
 
 let profileController = {
 login: function(req,res){
@@ -27,26 +27,34 @@ login: function(req,res){
         })
     },
     create: function (req, res) {
-        let { email, name, password, fechaNacimiento, documento, foto } = req.body;
-
         // Verificar si el email ya existe
-
-
-        User.create({
-            email: email,
-            nombreUsuario: name,
-            contrasenia: passwordHasheada,
-            fechaNacimiento: fechaNacimiento,
-            documento: documento,
-            foto: foto
+        let { email, name, password, fechaNacimiento, documento, foto } = req.body;
+        db.user.findAll({
+            where:[{email: email}]
         })
-            .then(function (resultado) {
-                return res.redirect('/products/profile');
-            })
-            .catch(function (error) {
-                console.log(error);
-                return res.send("Error al crear el usuario");
-            });
+        .then(function(results){
+            if (results!= undefined) {
+                return res.render('register', {datos : 'el email usado ya esta en la base de datos'})
+            }else{
+                db.user.create({
+                    email: email,
+                    nombreUsuario: name,
+                    contrasenia: passwordHasheada,
+                    fechaNacimiento: fechaNacimiento,
+                    documento: documento,
+                    foto: foto
+                })
+                    .then(function (resultado) {
+                        return res.redirect('/products/profile');
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        return res.send("Error al crear el usuario");
+                    });
+            }
+        })
+
+        
     }
 
         
