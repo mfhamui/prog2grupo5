@@ -1,3 +1,5 @@
+const { usuario } = require("../../db");
+
 module.exports = function (sequelize, dataTypes) {
     let alias = 'User'; 
 
@@ -46,13 +48,13 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "usuario", 
         timestamps: true,
-        underscored: true,
+        underscored: false,
     };
      
     const User = sequelize.define(alias, cols, config);
      
-    usuario.associate = function(models) {
-        usuario.hasMany(models.products, {
+    User.associate = function(models) {
+        User.hasMany(models.products, {
             as : "products",
             foreignKey: "idUsuario"
         })

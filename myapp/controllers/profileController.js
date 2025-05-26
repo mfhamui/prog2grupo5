@@ -62,7 +62,7 @@ create: function (req, res) {
             User.create({
                 email: email,
                 nombreUsuario: name,
-                contrasenia: passwordHasheada,
+                contrasenia: bcrypt.hashSync(password, 10),
                 fechaNacimiento: fechaNacimiento,
                 documento: documento,
                 foto: foto
