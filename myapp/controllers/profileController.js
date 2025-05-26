@@ -6,9 +6,7 @@ const op = db.Sequelize.Op
 
 let profileController = {
 showLogin: function (req, res) {
-    if (req.session.user) {
-        return res.redirect("/profile");
-    }
+    
     res.render("login")
 },
 login: function(req,res){
