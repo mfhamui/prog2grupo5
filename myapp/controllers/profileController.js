@@ -1,10 +1,21 @@
- const data  = require("../db/index");
+const db  = require("../db/index");
 const User = db.User;
 const bcrypt = require("bcryptjs");
 
  let profileController = {
     login: function(req,res){
-        return res.render('login')
+        
+        let datos = req.body;
+        db.user.findAll({
+            where: [{email: datos.email}]
+        })
+        .then(function(results){
+            if (results != undefined) {
+                return res.render('login', {datos: "debe ingresar otro email"})
+            }
+        })
+        
+
     },
     register: function(req,res){
         return res.render('register')
@@ -19,6 +30,7 @@ const bcrypt = require("bcryptjs");
                                         productos: data.productos
                                      })
     },
+
  };
 
  module.exports = profileController;

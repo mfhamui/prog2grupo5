@@ -25,37 +25,42 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<div class="col-12 align-form">   
-				<section class="form-lr">
-					<form  class="formula" action="/products" method="GET">
-
-						<div class="formDos">
-							<label > Usuario:</label>
-							<input class="email" type="email"  name="email"  placeholder="ingrese su nombre de usuario" >
-						</div>
-				
-						<div class="formDos">
-							<label>Contraseña:</label>
-							<input type="password"  name="contra"  placeholder="Contraseña" >
-						</div>
-		
-						<div class="formDos">
-							<label> <input type="checkbox" name="recordarme" id="recordarme" value="">Recordarme</label>
-						</div>
-				
-						<div class="formDos">
-						<button type="submit">Ingresar</button>
-						</div>
-				
+			<% if (datos != undefined) { %>
+			<p><%= datos %></p>
+			<% } else { %>
+				<div class="col-12">
+					<h2 class="products-title">Ingresar</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<div class="col-12 align-form">   
+					<section class="form-lr">
+						<form  class="formula" action="/products" method="POST">
+	
+							<div class="formDos">
+								<label > Usuario:</label>
+								<input class="email" type="email"  name="email"  placeholder="ingrese su nombre de usuario" >
+							</div>
+					
+							<div class="formDos">
+								<label>Contraseña:</label>
+								<input type="password"  name="contra"  placeholder="Contraseña" >
+							</div>
 			
-					</form>
-				</section>
+							<div class="formDos">
+								<label> <input type="checkbox" name="recordarme" id="recordarme" value="">Recordarme</label>
+							</div>
+					
+							<div class="formDos">
+							<button type="submit">Ingresar</button>
+							</div>
+					
 				
-		</div>
+						</form>
+					</section>
+					
+			</div>
+			<% } %>
+			
 
 
 	<!-- footer -->
