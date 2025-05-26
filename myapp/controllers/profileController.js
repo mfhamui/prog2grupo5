@@ -1,4 +1,7 @@
  const data  = require("../db/index");
+const User = db.User;
+const bcrypt = require("bcryptjs");
+
  let profileController = {
     login: function(req,res){
         return res.render('login')
