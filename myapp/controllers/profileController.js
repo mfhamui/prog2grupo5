@@ -1,4 +1,5 @@
-const db  = require("../db/index");
+const data  = require("../db/index");
+const db = require('../database/models')
 const User = db.User;
 const bcrypt = require("bcryptjs");
 
@@ -6,7 +7,7 @@ const bcrypt = require("bcryptjs");
     login: function(req,res){
         
         let datos = req.body;
-        db.user.findAll({
+        db.User.findAll({
             where: [{email: datos.email}]
         })
         .then(function(results){
