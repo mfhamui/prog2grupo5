@@ -22,7 +22,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productos[0].nombre %></h2> 
+			<h2 class="products-title"><%= producto.nombreProducto%></h2> 
 			<p class="product-detail-description">
 				<a href="/products/product-add">Editar</a>
 			</p>
@@ -30,26 +30,29 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= productos[0].imagen %> alt="" class="product-detail-img">
+					<img src=<%= producto.nombreArchivoImagen%> alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= productos[0].descripcion %>
+						<%=producto.descripcionProducto %>
 					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < 5; i++ ) { %>
+						<% for( let i = 0; i < producto.comentarios.length; i++ ) { %>
 							<article>
-								<img src=<%= productos[0].comentarios[i].pic%> alt="">
+								<img src="<%= producto.comentarios[i].usuario.foto %>" alt="Foto de usuario">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/products/profile"><%= productos[0].comentarios[i].name %>: </a> </strong>
-									 <%= productos[0].comentarios[i].com %></p>
+						<strong>
+						<a href="/products/profile"><%= producto.comentarios[i].usuario.nombreUsuario %>:</a>
+						</strong>
+						<%= producto.comentarios[i].comentario %>
+
 								</div>
 							</article>
 						<% } %>
 					</section>
-					<form class="form" action="/products/product" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<form class="form" action="/products/product/<%= producto.id %>/comment" method="POST">
+						<input class="form-input" type="text" name= "comentario" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
