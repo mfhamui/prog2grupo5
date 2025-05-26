@@ -1,33 +1,56 @@
-let db = require("../database/models");
-const User = db.User;
-const bcrypt = require("bcryptjs");
+module.exports = function (sequelize, dataTypes) {
+    let alias = 'User'; 
 
-let usersController = {
-    show: function(req, res) {
-      return res.render('register');
-        
-    },
+    let cols = {
+        id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER.UNSIGNED
+        },
+        email: {
+            type: dataTypes.STRING(500),
+         
+        },
+        nombreUsuario: {
+            type: dataTypes.STRING(500),
+         
+            unique: true
+        },
+        contrasenia: {
+            type: dataTypes.STRING(500),
+           
+        },
+        fechaNacimiento: {
+            type: dataTypes.DATEONLY,
+           
+        },
+        documento: {
+            type: dataTypes.INTEGER.UNSIGNED,
+           
+        },
+        foto: {
+            type: dataTypes.STRING(500),
+            
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
+        },
+        deletedAt: {
+            type: dataTypes.DATE
+        }
+    };
 
-    create: function(req, res){
- 
-        let nombre = req.body.nombre;
-        let email = req.body.email;
-        let password = req.body.password;
+    let config = {
+        tableName: "usuario", 
+        timestamps: true,
+        paranoid: true,
+        underscored: false
+    };
 
-        let passworddos= bcrypt.hashSync(password, 10);
-        
-    User.create({
-      name: nombre,
-      email: email,
-      password: passworddos
-    })
-     .then(function(resultados){
-                 res.redirect('/');
-            })
-  
-    }
+    const User = sequelize.define(alias, cols, config);
 
-  };
-
-
-  module.exports = usersController;
+    return User;
+};
