@@ -10,23 +10,19 @@ login: function(req,res){
 
         db.User.findOne({ where: { email: { [op.like]: datos.email } } })
             .then(function (results) {
-                if (results != undefined) {
-                    let validPass = bcrypt.compareSync(datos.password, results.password);
-
-                    if (validPass) {
-                        req.session.user = results;
-                        if (datos.recordarme != undefined) {
-                            res.cookie("recordarme", results.email, { maxAge: 60000 })
-                        }
-                        return res.redirect("/product");
-
-                    } else {
-                        return res.send("contraseña incorrecta");
-                    }
-
-                } else {
+                if (results == undefined) {
                     return res.send("email incorrecto");
                 }
+                let validPassword = bcrypt.compareSync(datos.password, results.password);
+
+                if (validPassword == undefined) {
+                    return res.send("contraseña incorrecta");
+                }
+                req.session.user = results;
+                if (datos.recordarme != undefined) {
+                    res.cookie("recordarme", results.email, { maxAge: 60000 })
+                }
+                return res.redirect("/profile");
             })
         
         .catch(function (error) {
