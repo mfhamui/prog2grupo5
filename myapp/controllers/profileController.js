@@ -1,4 +1,4 @@
- const data  = require("../db/index");
+const data  = require("../db/index");
 const User = db.User;
 const bcrypt = require("bcryptjs");
 
@@ -7,6 +7,7 @@ const bcrypt = require("bcryptjs");
         return res.render('login')
     },
     register: function(req,res){
+        
         return res.render('register')
     }, 
     profile: function(req,res){
