@@ -1,6 +1,6 @@
 const data  = require("../db/index");
 const db = require("../database/models");
-const Movie = db.Movie; // el alias que esta en el modelo
+const products = db.products; 
 const Op= db.Sequelize.Op;
 
 let productController = {
@@ -16,23 +16,30 @@ let productController = {
     product: function(req,res){
         return res.render('product', {productos: data.productos})
     },
-    search_result: function(req,res){
-        
+    search_result: function (req, res) {
+       const search = req.query.search;
+        let relacion = {
+            where: {
+                nombreProducto: { [Op.like]: `%${search}%` }
+            },
+            include: [
+                { association: "usuario" }
+            ]
+        };
 
-    const search = req.query.search;
-
-    db.Movie.findAll({
-        where: {
-            title: { [Op.like]: `%${search}%` }
-        }
-    })
-    .then(function(peliculas) {
-        res.render("search-results", { productos: peliculas, search });
-    })
-    .catch(function(error) {
-        res.send(error);
-    })}
-   
+        db.products.findAll(relacion)
+            .then(function(productos) {
+                if (productos.length == 0) {
+                    mensaje = "No hay resultados para su criterio de búsqueda";
+                }else{
+                    mensaje= ""
+                };
+                return res.render("search-results", { productos, search, mensaje });
+            })
+            .catch(function(error) {
+                return res.send(error);
+            });
+    }
 
 }
 
