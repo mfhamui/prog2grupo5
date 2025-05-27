@@ -49,6 +49,16 @@
 							<article class="product-box_data">
 								<h2><%= productos[i].nombreProducto %></h2>
 								<p><%= productos[i].descripcionProducto %></p>
+
+								  <% if(productos[i].usuario) { %>
+        
+								<p>Publicado por: 
+									<a href="/products/profile/<%= productos[i].usuario.id %>">
+									<%= productos[i].usuario.nombreUsuario %>
+									</a>
+								</p>
+								<% } %>
+
 								<% if (productos[i].comentarios) { %>
 									<p>Comentarios: <%= productos[i].comentarios.length %></p>
 								<% } else { %>

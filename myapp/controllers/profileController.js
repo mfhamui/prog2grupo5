@@ -7,7 +7,7 @@ const op = db.Sequelize.Op
 let profileController = {
 show_login: function (req, res) {
     if (req.session.user) {
-        return res.redirect("/profile");
+        return res.redirect("/profile/" );
     }
     return res.render("login")
 },
@@ -47,15 +47,29 @@ register: function (req, res) {
     return res.render('register')
 },
 profile: function (req, res) {
-    return res.render('profile', {
-        nombre: data.usuario.nombre,
-        email: data.usuario.email,
-        contrasenia: data.usuario.password,
-        nacimiento: data.usuario.fechaNacimiento,
-        documento: data.usuario.documento,
-        foto: data.usuario.foto,
-        productos: data.productos
+  const idUsuario = req.params.id;
+
+    db.User.findByPk(idUsuario, {
+        
+         include: [
+      { association: 'products', include: ['comentarios'] }
+    ] 
     })
+    .then(function(usuario) {
+         console.log("usuario encontrado:", usuario);
+            return res.render('profile', {
+            nombre: usuario.nombreUsuario,
+            email: usuario.email,
+            contrasenia: usuario.contrasenia,
+            nacimiento: usuario.fechaNacimiento,
+            documento: usuario.documento,
+            foto: usuario.foto,
+            productos: usuario.products 
+        });
+    })
+    .catch(function(error) {
+        return res.send(error);
+    });
 },
 create: function (req, res) {
     // Verificar si el email ya existe
