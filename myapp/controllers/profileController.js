@@ -1,53 +1,78 @@
 const data = require("../db/index");
 const db = require('../database/models')
 const bcrypt = require("bcryptjs");
+const comentarios = require("../database/models/comentarios");
 let User = db.User;
 const op = db.Sequelize.Op
 
 let profileController = {
+show_login: function (req, res) {
+    if (req.session.user) {
+        return res.redirect("/profile/" );
+    }
+    return res.render("login")
+},
 login: function(req,res){
     let datos = req.body;
 
         db.User.findOne({ where: { email: { [op.like]: datos.email } } })
             .then(function (results) {
                 if (results != undefined) {
-                    let validPass = bcrypt.compareSync(datos.password, results.password);
-
-                    if (validPass) {
+                    let validPassword = bcrypt.compareSync(datos.password, results.password);
+                    if (validPassword) {
                         req.session.user = results;
                         if (datos.recordarme != undefined) {
                             res.cookie("recordarme", results.email, { maxAge: 60000 })
                         }
-                        return res.redirect("/product");
-
-                    } else {
+                        return res.redirect("/profile");
+                    }else{
                         return res.send("contraseña incorrecta");
                     }
-
-                } else {
+                }else{
                     return res.send("email incorrecto");
                 }
+                
+
+                
+                
+                
             })
         
         .catch(function (error) {
                     return res.send(error)
                 })
-
+        
 },
 register: function (req, res) {
 
     return res.render('register')
 },
 profile: function (req, res) {
-    return res.render('profile', {
-        nombre: data.usuario.nombre,
-        email: data.usuario.email,
-        contrasenia: data.usuario.password,
-        nacimiento: data.usuario.fechaNacimiento,
-        documento: data.usuario.documento,
-        foto: data.usuario.foto,
-        productos: data.productos
+  const idUsuario = req.params.id;
+
+    db.User.findByPk(idUsuario, {
+        
+         include: [
+      { association: 'products', include: ['comentarios'] },
+       { association: 'comentarios' }
+    ] 
     })
+    .then(function(usuario) {
+            return res.render('profile', {
+            id: idUsuario,
+            nombre: usuario.nombreUsuario,
+            email: usuario.email,
+            contrasenia: usuario.contrasenia,
+            nacimiento: usuario.fechaNacimiento,
+            documento: usuario.documento,
+            foto: usuario.foto,
+            productos: usuario.products, 
+            comentarios: usuario.comentarios
+        });
+    })
+    .catch(function(error) {
+        return res.send(error);
+    });
 },
 create: function (req, res) {
     // Verificar si el email ya existe
@@ -80,7 +105,13 @@ create: function (req, res) {
             });
         }
     })
+    },
+    logout: function (req,res) {
+        req.session.destroy();
+        res.clearCookie('recordarme');
+        return res.redirect("/products")
     }
+
 }
 
 

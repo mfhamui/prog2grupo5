@@ -10,8 +10,26 @@ let productController = {
     product_add: function(req,res){
         return res.render('product-add', {nombre: data.usuario.nombre})
     },
-    product: function(req,res){
-        return res.render('product', {productos: data.productos})
+    product: function(req, res) {
+    const idProducto = req.params.id;
+
+    let encontrarp = {
+      where: { id: idProducto },
+      include: [
+        { association: "usuario" },
+        { association: "comentarios",
+                include: ["usuario"] }
+        
+      ]
+    };
+
+    db.products.findOne(encontrarp)
+      .then(function(producto) {
+           return res.render("product", { producto });
+      })
+      .catch(function(error) {
+        return res.send(error);
+      });
     },
     search_result: function (req, res) {
        const search = req.query.search;
@@ -20,7 +38,8 @@ let productController = {
                 nombreProducto: { [op.like]: `%${search}%` }
             },
             include: [
-                { association: "usuario" }
+                { association: "usuario" },
+                 { association: "comentarios" }
             ]
         };
 
@@ -36,8 +55,33 @@ let productController = {
             .catch(function(error) {
                 return res.send(error);
             });
+    }, 
+    add_comment: function(req, res) {
+        const idProducto = req.params.id;
+        const nuevoComentario = req.body.comentario;
+        const usuario = req.session.user;
+
+        
+        if (usuario == null){ 
+            return res.redirect('/products/login');}
+            else{
+        db.comentario.create({
+            comentario: nuevoComentario,
+            usuarioId:  usuario.id,
+            productoId: idProducto
+        })
+        .then(function(comentarios) {
+            return res.redirect(`/products/product/${idProducto}`);
+        })
+        .catch(function(error) {res.send(error);
+        })
     }
 
+
+       
+
+
+    },
 }
 
 module.exports = productController;
