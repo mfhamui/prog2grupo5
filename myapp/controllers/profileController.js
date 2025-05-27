@@ -58,8 +58,8 @@ profile: function (req, res) {
     ] 
     })
     .then(function(usuario) {
-         console.log("usuario encontrado:", usuario);
             return res.render('profile', {
+            id: idUsuario,
             nombre: usuario.nombreUsuario,
             email: usuario.email,
             contrasenia: usuario.contrasenia,
