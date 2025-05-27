@@ -40,7 +40,7 @@
 					<ul class="">
 						<li> <%= productos.length %>  productos </li>
 						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li><%= comentarios.length %> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 								
 								<h2><%= productos[i].nombreProducto %></h2>
 								<p><%= productos[i].descripcionProducto %></p>
-								<p>Comentarios:  <%= productos[i].cantidadComentarios %></p>
+								<p>Comentarios:  <%= productos[i].comentarios.length %></p>
 
 							</article>
 						</a>

@@ -1,6 +1,7 @@
 const data = require("../db/index");
 const db = require('../database/models')
 const bcrypt = require("bcryptjs");
+const comentarios = require("../database/models/comentarios");
 let User = db.User;
 const op = db.Sequelize.Op
 
@@ -52,7 +53,8 @@ profile: function (req, res) {
     db.User.findByPk(idUsuario, {
         
          include: [
-      { association: 'products', include: ['comentarios'] }
+      { association: 'products', include: ['comentarios'] },
+       { association: 'comentarios' }
     ] 
     })
     .then(function(usuario) {
@@ -64,7 +66,8 @@ profile: function (req, res) {
             nacimiento: usuario.fechaNacimiento,
             documento: usuario.documento,
             foto: usuario.foto,
-            productos: usuario.products 
+            productos: usuario.products, 
+            comentarios: usuario.comentarios
         });
     })
     .catch(function(error) {
