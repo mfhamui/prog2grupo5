@@ -53,8 +53,8 @@ profile: function (req, res) {
     db.User.findByPk(idUsuario, {
         
          include: [
-      { association: 'products', include: ['comentarios'] },
-       { association: 'comentarios' }
+        {association: 'products', include: ['comentarios'] },
+        { association: 'comentarios' }
     ] 
     })
     .then(function(usuario) {
@@ -81,29 +81,30 @@ create: function (req, res) {
         where:[{email: email}]
     })
     .then(function(results){
-        if (results.lengh>0) {
+        if (results.length>0) {
             return res.send('no se puede crear el usuario porque ya existe una cuenta con ese email')
-        }else{
-            if (condition) {
-                
-            }
-
-            User.create({
-                email: email,
-                nombreUsuario: name,
-                contrasenia: bcrypt.hashSync(password, 10),
-                fechaNacimiento: fechaNacimiento,
-                documento: documento,
-                foto: foto
-            })
-            .then(function (resultado) {
-                return res.redirect('/products/profile');
-            })
-            .catch(function (error) {
-                console.log(error);
-                return res.send("Error al crear el usuario");
-            });
         }
+        if (password.length<3) {
+            return res.send(password)
+            return res.send('la contraseña debe tener al menos 3 caracteres')
+        }
+        let pass = bcrypt.hashSync(password, 10);
+        User.create({
+            email: email,
+            nombreUsuario: name,
+            contrasenia: pass,
+            fechaNacimiento: fechaNacimiento,
+            documento: documento,
+            foto: foto
+        })
+        .then(function (results) {
+            req.session.user = results;
+            return res.redirect(`/products/profile/${results.id}`);
+        })   
+        .catch(function (error) {
+            console.log(error);
+            return res.send(error);
+        });
     })
     },
     logout: function (req,res) {
