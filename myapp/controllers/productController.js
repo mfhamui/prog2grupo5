@@ -81,10 +81,10 @@ let productController = {
         if (usuario == null){ 
             return res.redirect('/products/login');}
             else{
-        db.comentario.create({
+        db.comentarios.create({
             comentario: nuevoComentario,
-            usuarioId:  usuario.id,
-            productoId: idProducto
+            idUsuario:  usuario.id,
+            idProducto: idProducto
         })
         .then(function(comentarios) {
             return res.redirect(`/products/product/${idProducto}`);

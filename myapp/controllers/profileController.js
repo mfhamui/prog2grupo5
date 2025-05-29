@@ -15,41 +15,35 @@ show_login: function (req, res) {
 login: function(req,res){
     let datos = req.body;
 
-        db.User.findOne({ where: { email: { [op.like]: datos.email } } })
+        User.findOne({ where: { email: { [op.like]: datos.email } } })
             .then(function (results) {
                 if (results != undefined) {
-                    let validPassword = bcrypt.compareSync(datos.password, results.password);
+                    let validPassword = bcrypt.compareSync(datos.contrasenia, results.contrasenia);
                     if (validPassword) {
                         req.session.user = results;
                         if (datos.recordarme != undefined) {
                             res.cookie("recordarme", results.email, { maxAge: 60000 })
                         }
-                        return res.redirect("/profile");
+                        return res.redirect(`profile/${results.id}`);
                     }else{
                         return res.send("contraseña incorrecta");
                     }
                 }else{
-                    return res.send("email incorrecto");
-                }
-                
-
-                
-                
-                
+                    return res.send("el email no esta registrado");
+                }  
+            })
+            .catch(function (error) {
+                return res.send(error)
             })
         
-        .catch(function (error) {
-                    return res.send(error)
-                })
-        
 },
-register: function (req, res) {
 
+register: function (req, res) {
     return res.render('register')
 },
-profile: function (req, res) {
-  const idUsuario = req.params.id;
 
+profile: function (req, res) {
+    const idUsuario = req.params.id;
     db.User.findByPk(idUsuario, {
         
          include: [
@@ -85,7 +79,6 @@ create: function (req, res) {
             return res.send('no se puede crear el usuario porque ya existe una cuenta con ese email')
         }
         if (password.length<3) {
-            return res.send(password)
             return res.send('la contraseña debe tener al menos 3 caracteres')
         }
         let pass = bcrypt.hashSync(password, 10);
@@ -107,11 +100,11 @@ create: function (req, res) {
         });
     })
     },
-    logout: function (req,res) {
-        req.session.destroy();
-        res.clearCookie('recordarme');
-        return res.redirect("/products")
-    }
+logout: function (req,res) {
+    req.session.destroy();
+    res.clearCookie('recordarme');
+    res.redirect("/products")
+}
 
 }
 

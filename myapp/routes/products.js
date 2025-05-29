@@ -14,4 +14,5 @@ router.get('/search-results/:search?', productController.search_result);
 router.get('/register', profileController.register); 
 router.post('/newuser/', profileController.create); 
 router.post('/product/:id/comment', productController.add_comment);
+router.get('/profile/logout', profileController.logout)
 module.exports = router;
