@@ -9,7 +9,7 @@ const data = {
     },
   
     productos: [
-        {
+          {
           "imagen": "/images/products/Bronzer-Stick-Power-Boost-SKU.webp",
           "nombre": "Bronzer Stick",
           "comentarios": [

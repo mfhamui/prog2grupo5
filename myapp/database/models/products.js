@@ -9,14 +9,12 @@ module.exports = function (sequelize, dataTypes) {
         },
         idUsuario: {
             type: dataTypes.INTEGER.UNSIGNED,
-           
         },
         nombreArchivoImagen: {
             type: dataTypes.STRING(500)
         },
         nombreProducto: {
             type: dataTypes.STRING(500),
-            
         },
         descripcionProducto: {
             type: dataTypes.TEXT
@@ -31,7 +29,6 @@ module.exports = function (sequelize, dataTypes) {
         },
         deletedAt: {
             type: dataTypes.DATE,
-           
         }
     };
 

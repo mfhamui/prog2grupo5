@@ -37,14 +37,39 @@
 			 <% for( let i = 0; i < 10; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/product">
+						<a href='/products/product/<%= productos[i].id %>'>
 							<figure class="product-box_image">
-								<img src=<%= productos[i].imagen %> alt="cafetera moulinex">
+								<img src=<%= productos[i].nombreArchivoImagen %> alt="cafetera moulinex">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= productos[i].nombre %></h2>
-								<p><%= productos[i].descripcion %></p>
-								<p>Comentarios: <%= productos[i].comentarios.length %></p>
+								<h2><%= productos[i].nombreProducto %></h2>
+								<p><%= productos[i].descripcionProducto %></p>
+								<% 
+								let idUsuario = productos[i].idUsuario; 
+								for (let i = 0; i < usuarios.length; i++) {
+									if (usuarios[i].id==idUsuario) {
+										let nombreUsuario = usuarios[i].nombreUsuario;
+										%>
+										<a href="/products/profile/<%= productos[i].idUsuario %>">Usuario: <%= nombreUsuario %></a>
+										<%
+									}
+									
+								}
+								%>
+								<% 
+								let id = productos[i].id; 
+								console.log(id)
+								let comentariosProducto = [] 
+								for (let j = 0; j < comentarios.length; j++) {
+									if (id == comentarios[j].idProducto) {
+										comentariosProducto.push(comentarios[j])
+									}
+								}
+								%>
+								<p>Comentarios:<%= comentariosProducto.length %></p>
+									
+							
+								<!-- Show the "ultimos" products -->
 							</article>
 						</a>
 					</section>
