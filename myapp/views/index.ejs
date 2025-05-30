@@ -50,7 +50,7 @@
 									if (usuarios[i].id==idUsuario) {
 										let nombreUsuario = usuarios[i].nombreUsuario;
 										%>
-										<p><a href="/products/profile/<%= productos[i].idUsuario %>">Usuario: <%= nombreUsuario %></a></p>
+										<p><a href="/products/profile/<%= usuarios[i].id %>">Publicado por: <%= nombreUsuario %></a></p>
 										
 										<%
 									}

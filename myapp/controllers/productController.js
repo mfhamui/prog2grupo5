@@ -51,7 +51,7 @@ let productController = {
        const search = req.query.search;
         let relacion = {
             where: {
-                nombreProducto: { [op.like]: `%${search}%` }
+                nombreProducto: { [op.like]:`%${search}%` }
             },
             include: [
                 { association: "usuario" },
