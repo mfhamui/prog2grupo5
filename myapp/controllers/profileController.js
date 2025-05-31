@@ -103,15 +103,10 @@ create: function (req, res) {
     })
     },
 logout: function (req,res) {
-    req.session.destroy(function(results) {
-
-  if (results) {
-    // Si hay error, mostrar mensaje
-    return res.send('Error al cerrar sesión');
-  }
+    req.session.destroy();
     res.clearCookie('recordarme');
     return res.redirect("/products")
-  })
+}
 
 }
 };
