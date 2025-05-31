@@ -69,8 +69,7 @@ profile: function (req, res) {
     });
 },
 create: function (req, res) {
-    // Verificar si el email ya existe
-    let { email, name, password, fechaNacimiento, documento, foto } = req.body;
+       let { email, name, password, fechaNacimiento, documento, foto } = req.body;
     User.findAll({
         where:[{email: email}]
     })
@@ -109,7 +108,7 @@ logout: function (req,res) {
 }
 
 }
-};
+
 
 
 
