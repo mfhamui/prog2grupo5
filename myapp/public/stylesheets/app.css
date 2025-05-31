@@ -608,3 +608,13 @@ textarea.form-input {
   width: 120%;
   
 }
+.saludo{
+  background: transparent;
+  border: 0px;
+  font-size: 1em;
+  padding-top: 15px;
+  color: var(--yellow);
+  font-weight: bold;
+  font-size:large;
+ 
+}
