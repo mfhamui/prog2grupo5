@@ -39,7 +39,7 @@ login: function(req,res){
 },
 
 register: function (req, res) {
-    return res.render('register')
+    return res.render('register', {error: undefined})
 },
 
 profile: function (req, res) {
@@ -76,10 +76,12 @@ create: function (req, res) {
     })
     .then(function(results){
         if (results.length>0) {
-            return res.send('no se puede crear el usuario porque ya existe una cuenta con ese email')
+            return res.render('register', { error: " ya existe una cuenta con ese email" })
+            
         }
         if (password.length<3) {
-            return res.send('la contraseña debe tener al menos 3 caracteres')
+             return res.render('register', { error: 'la contraseña debe tener al menos 3 caracteres' })
+            
         }
         let pass = bcrypt.hashSync(password, 10);
         User.create({
@@ -101,12 +103,18 @@ create: function (req, res) {
     })
     },
 logout: function (req,res) {
-    req.session.destroy();
+    req.session.destroy(function(results) {
+
+  if (results) {
+    // Si hay error, mostrar mensaje
+    return res.send('Error al cerrar sesión');
+  }
     res.clearCookie('recordarme');
     return res.redirect("/products")
-}
+  })
 
 }
+};
 
 
 

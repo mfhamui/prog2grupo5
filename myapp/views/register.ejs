@@ -30,7 +30,9 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 align-form">
+				
 				<section class="form-lr">
+					
 					<form action="/products/newuser" method="POST">
 						<div class="formDos">
 							<label for="email">Correo electrónico:</label>
@@ -61,7 +63,15 @@
 							  <input type="text" id="foto" name="foto"><br>
 	
 						</div>
+						
 						<div class="formDos">
+							<div class="error" >
+							<% if (error != undefined) { %>
+							<%= error %>
+							<% } %>   
+						</div>
+						
+					
 							<button type="submit">Registrarme</button>
 						</div>
 					</form>
