@@ -33,19 +33,23 @@
                 <a href="/products/">Todos los productos</a>
             </ul>
 
-            <ul class="right-navbar">
+            
                 <%if(user != undefined) {%>
-                <li><a href="profile/<%= user.id %>"> <%= user.name %> <i class="fas fa-user"></i> </a></li>
+                <p class="saludo" >Hola <%= user.nombreUsuario %> ! ¿Cómo estas?</p>
+                <ul class="right-navbar">
+                <li><a href="/products/profile/<%= user.id %>">  Mi perfil <i class="fas fa-user"></i> </a></li>
                 <li><a href="logout" class="logout">Cerrar sesión</a></li>
                 <li><a href="/products/product-add">Cargar productos</a></li> 
-                
+                </ul>
                 <% } else { %>
+                    <ul class="right-navbar">
                     <li>
                         <a href="/products/register">Creá tu cuenta <i class="far fa-address-card"></i> </a>
                     </li>
                     <li>
                         <a href="/products/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
                     </li>
+                    </ul>
                 <%}%>
                 
                 

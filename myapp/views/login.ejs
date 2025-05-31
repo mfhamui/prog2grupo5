@@ -30,10 +30,9 @@
 					<h2 class="products-title">Ingresar</h2>
 				</div>
 				<!-- Show the "ultimos" products -->
-				<div class="col-12 align-form">   
+				<div class="col-12 align-form"> 
 					<section class="form-lr">
 						<form  class="formula" action="/products/login" method="POST">
-	
 							<div class="formDos">
 								<label > Email:</label>
 								<input class="email" type="email"  name="email"  placeholder="ingrese su nombre de usuario" >
@@ -49,6 +48,10 @@
 							</div>
 					
 							<div class="formDos">
+								<% if (error != undefined) { %>
+							<%= error %>
+						 
+								<% } %>  
 							<button type="submit">Ingresar</button>
 							</div>
 					

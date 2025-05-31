@@ -10,7 +10,7 @@ show_login: function (req, res) {
     if (req.session.user) {
         return res.redirect("/profile/" );
     }
-    return res.render("login")
+    return res.render("login", {error: undefined})
 },
 login: function(req,res){
     let datos = req.body;
@@ -26,10 +26,10 @@ login: function(req,res){
                         }
                         return res.redirect(`profile/${results.id}`);
                     }else{
-                        return res.send("contraseña incorrecta");
+                        return res.render('login', { error: "contraseña incorrecta" })
                     }
                 }else{
-                    return res.send("el email no esta registrado");
+                    return res.render('login', { error: "El email no está registrado" })
                 }  
             })
             .catch(function (error) {
