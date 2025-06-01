@@ -580,7 +580,7 @@ textarea.form-input {
 }
 
 .form-lr {
-  width: 50%;
+  width: 200px;
   margin-top: 20px;
   display: flex;
   text-align: left;

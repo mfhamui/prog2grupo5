@@ -38,7 +38,7 @@
                 <p class="saludo" >Hola <%= user.nombreUsuario %> ! ¿Cómo estas?</p>
                 <ul class="right-navbar">
                 <li><a href="/products/profile/<%= user.id %>">  Mi perfil <i class="fas fa-user"></i> </a></li>
-                <li><a href="logout" class="logout">Cerrar sesión</a></li>
+                <li><a href="/products/profile/logout" class="logout">Cerrar sesión</a></li>
                 <li><a href="/products/product-add">Cargar productos</a></li> 
                 </ul>
                 <% } else { %>

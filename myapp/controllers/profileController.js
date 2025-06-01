@@ -39,7 +39,7 @@ login: function(req,res){
 },
 
 register: function (req, res) {
-    return res.render('register')
+    return res.render('register', {error: undefined})
 },
 
 profile: function (req, res) {
@@ -69,17 +69,18 @@ profile: function (req, res) {
     });
 },
 create: function (req, res) {
-    // Verificar si el email ya existe
-    let { email, name, password, fechaNacimiento, documento, foto } = req.body;
+       let { email, name, password, fechaNacimiento, documento, foto } = req.body;
     User.findAll({
         where:[{email: email}]
     })
     .then(function(results){
         if (results.length>0) {
-            return res.send('no se puede crear el usuario porque ya existe una cuenta con ese email')
+            return res.render('register', { error: " ya existe una cuenta con ese email" })
+            
         }
         if (password.length<3) {
-            return res.send('la contraseña debe tener al menos 3 caracteres')
+             return res.render('register', { error: 'la contraseña debe tener al menos 3 caracteres' })
+            
         }
         User.findAll({
             where: [{nombreUsuario: name}]
@@ -109,13 +110,14 @@ create: function (req, res) {
         
     })
     },
-logout: function (req, res) {
+logout: function (req,res) {
     req.session.destroy();
-    res.clearCookie('recordarme')
-    return res.redirect("/products");
+    res.clearCookie('recordarme');
+    return res.redirect("/products")
 }
 
 }
+
 
 
 
