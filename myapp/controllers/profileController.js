@@ -81,23 +81,32 @@ create: function (req, res) {
         if (password.length<3) {
             return res.send('la contraseña debe tener al menos 3 caracteres')
         }
-        let pass = bcrypt.hashSync(password, 10);
-        User.create({
-            email: email,
-            nombreUsuario: name,
-            contrasenia: pass,
-            fechaNacimiento: fechaNacimiento,
-            documento: documento,
-            foto: foto
+        User.findAll({
+            where: [{nombreUsuario: name}]
         })
-        .then(function (results) {
-            req.session.user = results;
-            return res.redirect(`/products/profile/${results.id}`);
-        })   
-        .catch(function (error) {
-            console.log(error);
-            return res.send(error);
+        .then(function(results){
+            if (results.length>0){
+                return res.send('ya existe este nombre de usuario')
+            }
+            let pass = bcrypt.hashSync(password, 10);
+            User.create({
+                email: email,
+                nombreUsuario: name,
+                contrasenia: pass,
+                fechaNacimiento: fechaNacimiento,
+                documento: documento,
+                foto: foto
+            })
+            .then(function (results) {
+                req.session.user = results;
+                return res.redirect(`/products/profile/${results.id}`);
+            })   
+            .catch(function (error) {
+                console.log(error);
+                return res.send(error);
         });
+        })
+        
     })
     },
 logout: function (req, res) {
