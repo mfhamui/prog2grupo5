@@ -87,7 +87,7 @@ create: function (req, res) {
         })
         .then(function(results){
             if (results.length>0){
-                return res.send('ya existe este nombre de usuario')
+                return res.render('register', { error: 'ya existe este nombre de usuario'})
             }
             let pass = bcrypt.hashSync(password, 10);
             User.create({
