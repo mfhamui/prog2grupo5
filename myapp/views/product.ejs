@@ -27,17 +27,17 @@
 				<h2 class="products-title">
 					<%= producto.nombreProducto%>
 				</h2>
-				<%if(user !=undefined) {%>
-					<p class="product-detail-description">
-						<a href="/products/product-add">Editar</a>
-					</p>
-				<% } %>
+				
+				<p class="product-detail-description">
+					<a href="/products/product-add">Editar</a>
+				</p>
+				
 
 			</div>
 			<div class="product-detail">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src=<%=producto.nombreArchivoImagen%> alt="" class="product-detail-img">
+						<img src="/images/products/<%=producto.nombreArchivoImagen%>" alt="" class="product-detail-img">
 						<p class="product-detail-description">
 							<%=producto.descripcionProducto %>
 						</p>

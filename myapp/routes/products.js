@@ -10,6 +10,7 @@ router.post('/login', profileController.login);
 router.get('/profile/logout', profileController.logout)
 router.get('/profile/:id', profileController.profile);
 router.get('/product-add', productController.product_add );
+router.post('/product-add', productController.createProduct);
 router.get('/product/:id', productController.product);
 router.get('/search-results/:search?', productController.search_result);
 router.get('/register', profileController.register); 

@@ -29,18 +29,18 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 align-form"> 
 				<section class="form-lr">
-					<form action="/products/product-add" method="GET" class="formula" enctype="multipart/form-data">
+					<form action="/products/product-add" method="POST" class="formula" >
 						<div class="form-group">
 							<label for="image">Imagen del producto:</label>
-							<input type="url" name="image" id="image" >
+							<input type="text" name="nombreArchivoImagen" id="image" >
 						</div>
 						<div class="form-group">
 							<label for="productName">Nombre del producto:</label>
-							<input type="text" name="productName" id="productName" >
+							<input type="text" name="nombreProducto" id="productName" >
 						</div>
 						<div class="form-group">
 							<label for="description">Descripción:</label>
-							<textarea name="description" id="description" rows="4" ></textarea>
+							<textarea name="descripcionProducto" id="description" rows="4" ></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary">Agregar producto</button>
 					</form>
