@@ -30,8 +30,8 @@ let productController = {
 
         const usuario = req.session.user;
         if (usuario == null) {
-            return res.redirect('/products/login');
-        } else{
+            return res.redirect('/users/login');
+        } else {
             const datos = {
             nombreArchivoImagen: req.body.nombreArchivoImagen,
             nombreProducto: req.body.nombreProducto,
@@ -109,7 +109,7 @@ let productController = {
 
 
         if (usuario == null) {
-            return res.redirect('/products/login');
+            return res.redirect('/users/login');
         }
         else {
             db.comentarios.create({
