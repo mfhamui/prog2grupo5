@@ -100,7 +100,7 @@ create: function (req, res) {
             })
             .then(function (results) {
                 req.session.user = results;
-                return res.redirect(`/products/profile/${results.id}`);
+                return res.redirect(`/users/profile/${results.id}`);
             })   
             .catch(function (error) {
                 console.log(error);
