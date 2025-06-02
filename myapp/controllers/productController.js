@@ -6,23 +6,7 @@ const usuarios = db.User;
 const op = db.Sequelize.Op;
 
 let productController = {
-    index: function (req, res) {
-        products.findAll()
-            .then(function (results) {
-                let productos = results
-                comentarios.findAll()
-                    .then(function (results) {
-                        let comments = results;
-                        usuarios.findAll()
-                            .then(function (results) {
-                                return res.render('index', { productos: productos, comentarios: comments, usuarios: results })
-                            })
-                    })
-            })
-            .catch(function (error) {
-                return res.send(error)
-            })
-    },
+    
     product_add: function (req, res) {
         return res.render('product-add', { nombre: data.usuario.nombre })
     },
