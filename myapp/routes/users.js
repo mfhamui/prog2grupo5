@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const profileController = require('../controllers/profileController');
+const userController = require('../controllers/userController');
 
-router.get('/register', profileController.register); 
-router.post('/newuser/', profileController.create); 
-router.get('/login', profileController.show_login);
-router.post('/login', profileController.login);
-router.get('/profile/logout', profileController.logout)
-router.get('/profile/:id', profileController.profile);
+router.get('/register', userController.register); 
+router.post('/newuser/', userController.create); 
+router.get('/login', userController.show_login);
+router.post('/login', userController.login);
+router.get('/profile/logout', userController.logout)
+router.get('/profile/:id', userController.profile);
 
 module.exports = router;
