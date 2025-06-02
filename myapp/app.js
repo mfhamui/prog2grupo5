@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 // middleware de cookies para vistas
 app.use(function (req, res, next) {
   if (req.cookies.recordarme != undefined && req.session.user == undefined) {
-    db.User.findByPk(res.cookie.recordarme)
+    db.User.findByPk(req.cookies.recordarme)
     .then(function(usuario){
       if(usuario){
         req.session.user = usuario;
