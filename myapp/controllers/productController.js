@@ -29,29 +29,33 @@ let productController = {
     createProduct: function (req, res) {
 
         const usuario = req.session.user;
+        
 
         if (usuario == null) {
             return res.redirect('/products/login');
+        } else {
+            const datos = {
+                nombreArchivoImagen: req.body.nombreArchivoImagen,
+                nombreProducto: req.body.nombreProducto,
+                descripcionProducto: req.body.descripcionProducto,
+                idUsuario: usuario.id
+            };
+            products.create({
+                nombreArchivoImagen: datos.nombreArchivoImagen,
+                nombreProducto: datos.nombreProducto,
+                descripcionProducto: datos.descripcionProducto,
+                idUsuario: datos.idUsuario
+            })
+                .then(function (productCreated) {
+                    return res.redirect(`/products/product/${productCreated.id}`);
+                })
+                .catch(function (error) {
+                    res.send(error);
+                })
         }
-        const datos = {
-            nombreArchivoImagen: req.body.nombreArchivoImagen,
-            nombreProducto: req.body.nombreProducto,
-            descripcionProducto: req.body.descripcionProducto,
-            idUsuario: usuario.id
-        };
+        
 
-        products.create({
-            nombreArchivoImagen: datos.nombreArchivoImagen,
-            nombreProducto: datos.nombreProducto,
-            descripcionProducto: datos.descripcionProducto,
-            idUsuario: datos.idUsuario
-        })
-            .then(function (productCreated) {
-                return res.redirect(`/products/product/${productCreated.id}`);
-            })
-            .catch(function (error) {
-                res.send(error);
-            })
+        
 
 
     },
