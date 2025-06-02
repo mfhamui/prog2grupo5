@@ -33,10 +33,10 @@ let productController = {
             return res.redirect('/users/login');
         } else {
             const datos = {
-            nombreArchivoImagen: req.body.nombreArchivoImagen,
-            nombreProducto: req.body.nombreProducto,
-            descripcionProducto: req.body.descripcionProducto,
-            idUsuario: usuario.id  
+                nombreArchivoImagen: req.body.nombreArchivoImagen,
+                nombreProducto: req.body.nombreProducto,
+                descripcionProducto: req.body.descripcionProducto,
+                idUsuario: usuario.id
             };
             products.create({
                 nombreArchivoImagen: datos.nombreArchivoImagen,
