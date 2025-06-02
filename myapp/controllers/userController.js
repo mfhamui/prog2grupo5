@@ -114,7 +114,7 @@ create: function (req, res) {
 logout: function (req,res) {
     req.session.destroy();
     res.clearCookie('recordarme');
-    return res.redirect("/products")
+    return res.redirect("/")
 }
 
 }
