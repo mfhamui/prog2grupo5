@@ -100,8 +100,7 @@ create: function (req, res) {
                 foto: foto
             })
             .then(function (results) {
-                req.session.user = results;
-                return res.redirect(`/users/profile/${results.id}`);
+                return res.redirect(`/users/login`);
             })   
             .catch(function (error) {
                 console.log(error);
