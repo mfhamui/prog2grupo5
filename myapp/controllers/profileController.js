@@ -14,15 +14,16 @@ show_login: function (req, res) {
 },
 login: function(req,res){
     let datos = req.body;
-
+    // return res.send(datos)
         User.findOne({ where: { email: { [op.like]: datos.email } } })
             .then(function (results) {
                 if (results != undefined) {
                     let validPassword = bcrypt.compareSync(datos.contrasenia, results.contrasenia);
                     if (validPassword) {
                         req.session.user = results;
-                        if (datos.recordarme != undefined) {
-                            res.cookie("recordarme", results.email, { maxAge: 60000 })
+                        if (datos.recordarme == "recordarme") {
+                            res.cookie("recordarme", results.id, { maxAge: 60000 })
+                            
                         }
                         return res.redirect(`profile/${results.id}`);
                     }else{
