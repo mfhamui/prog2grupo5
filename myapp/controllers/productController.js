@@ -29,8 +29,6 @@ let productController = {
     createProduct: function (req, res) {
 
         const usuario = req.session.user;
-        
-
         if (usuario == null) {
             return res.redirect('/users/login');
         } else {
@@ -53,9 +51,6 @@ let productController = {
                     res.send(error);
                 })
         }
-        
-
-        
 
 
     },
