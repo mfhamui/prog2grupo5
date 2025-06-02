@@ -32,7 +32,7 @@ let productController = {
         
 
         if (usuario == null) {
-            return res.redirect('/products/login');
+            return res.redirect('/users/login');
         } else {
             const datos = {
                 nombreArchivoImagen: req.body.nombreArchivoImagen,
@@ -114,7 +114,7 @@ let productController = {
 
 
         if (usuario == null) {
-            return res.redirect('/products/login');
+            return res.redirect('/users/login');
         }
         else {
             db.comentarios.create({
