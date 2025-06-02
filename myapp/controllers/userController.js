@@ -5,7 +5,7 @@ const comentarios = require("../database/models/comentarios");
 let User = db.User;
 const op = db.Sequelize.Op
 
-let usersController = {
+let userController = {
 show_login: function (req, res) {
     if (req.session.user) {
         return res.redirect("/profile/" );
@@ -123,5 +123,5 @@ logout: function (req,res) {
 
 
 
-module.exports = usersController;
+module.exports = userController;
 
