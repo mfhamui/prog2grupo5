@@ -49,12 +49,10 @@ app.use(function (req, res, next) {
       }else{
         res.clearCookie('recordarme')
       }
-      return next()
 
     })
     .catch(function(error){
       return res.send(error)
-      return next()
     })
   }
   return next()
