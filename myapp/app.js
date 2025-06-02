@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session");
+const db = require('./database/models')
 
 
 var indexRouter = require('./routes/index');
@@ -29,10 +30,10 @@ app.use(session({
 }));
 //middleware de session
 app.use(function (req, res, next) {
-  if (req.session.user) {
+  if (req.session.user != undefined) {
     res.locals.user = req.session.user;
   } else {
-    res.locals.user = null;
+    res.locals.user = undefined;
   }
 
   return next();
@@ -40,8 +41,18 @@ app.use(function (req, res, next) {
 // middleware de cookies para vistas
 app.use(function (req, res, next) {
   if (req.cookies.recordarme != undefined && req.session.user == undefined) {
-    res.locals.user= req.cookies.recordarme;
-    req.session.user = req.cookies.recordarme;
+    db.User.findByPk(res.cookies.recordarme)
+    .then(function(usuario){
+      if(usuario){
+        req.session.user = usuario;
+        res.locals.user = usuario;
+      }else{
+        res.clearCookie('recordarme')
+      }
+    })
+    .catch(function(error){
+      return res.send(error)
+    })
   }
   return next()
 })
