@@ -49,6 +49,7 @@ app.use(function (req, res, next) {
       }else{
         res.clearCookie('recordarme')
       }
+
     })
     .catch(function(error){
       return res.send(error)
