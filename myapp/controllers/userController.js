@@ -22,7 +22,7 @@ login: function(req,res){
                     if (validPassword) {
                         req.session.user = results;
                         if (datos.recordarme == "recordarme") {
-                            res.cookie("recordarme", results, { maxAge: 60000 })
+                            res.cookie("recordarme", results.id, { maxAge: 60000 })
                             
                         }
                         return res.redirect(`profile/${results.id}`);
